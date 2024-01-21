@@ -18,7 +18,19 @@ const App = () => {
   useEffect(() => {
     const fetchFromAPI = async () => {
       const weather = await (await fetch(API_URL)).json();
-      console.log(weather);
+      const marsWeather = weather.sol_keys.map(solKey => {
+        return {
+          sol: solKey,
+          maxTemp: weather[solKey].AT?.mx || 'No data of max temperature',
+          minTemp: weather[solKey].AT?.mn || 'No data of min temperature',
+          windSpeed: Math.round(weather[solKey].HWS?.av || 0),
+          windDirectionDegrees: weather[solKey].WD?.most_common?.compass_degrees || 0,
+          date: formatDate(new Date(weather[solKey].First_UTC)),
+        };
+      });
+      setWeather(marsWeather);
+      setSelectedSol(marsWeather.length - 1);
+      setLoading(false);
     };
 
     fetchFromAPI();
