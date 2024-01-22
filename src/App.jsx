@@ -11,7 +11,7 @@ import Previous from './components/Previous';
 const App = () => {
   const [loading, setLoading] = useState(true);
   const [weather, setWeather] = useState([]);
-  const [selectSol, setSelectedSol] = useState();
+  const [selectedSol, setSelectedSol] = useState();
   const [metric, setMetric] = useState(true);
   const [previous, setPrevious] = useState(false);
 
@@ -47,15 +47,21 @@ const App = () => {
               <h1 className='main-title'>
                 Latest weather at Elysium Platitia
               </h1>
-              <WeatherData />
+              <WeatherData sol={weather[selectedSol]} isMetric={metric} />
               <InfoWrapper>
                 <Info />
-                <Unit />
+                <Unit metric={metric} setMetric={setMetric} />
               </InfoWrapper>
             </>
           )}
         </MarsWeather>
-        <Previous />
+        <Previous
+          weather={weather}
+          previous={previous}
+          setPrevious={setPrevious}
+          setSelectedSol={setSelectedSol}
+          isMetric={metric}
+        />
       </AppWrapper>
     </>
   );

@@ -5,7 +5,7 @@ import { UnitStyles, Toggle } from './Unit.styles';
 const Unit = ({ metric, setMetric }) => (
   <UnitStyles>
     <label htmlFor='cel'>°C</label>
-    <Toggle />
+    <Toggle metric={metric} onClick={() => setMetric((prev) => !prev)} />
     <label htmlFor='fah'>°F</label>
   </UnitStyles>
 );
