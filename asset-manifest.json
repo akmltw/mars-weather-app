@@ -1,0 +1,11 @@
+{
+  "files": {
+    "main.js": "/mars-weather-app/static/js/main.5241b35b.js",
+    "static/media/mars.jpg": "/mars-weather-app/static/media/mars.8cc8298ff6d24f68699a.jpg",
+    "index.html": "/mars-weather-app/index.html",
+    "main.5241b35b.js.map": "/mars-weather-app/static/js/main.5241b35b.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.5241b35b.js"
+  ]
+}
