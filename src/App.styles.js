@@ -17,8 +17,18 @@ export const GlobalStyle = createGlobalStyle`
     --fs-body: 1rem;
     --fs-xl: 4.5rem;
     --clr-light: #fff;
+    --clr-gray: #524f4f;
+    --clr-dark: #000;
+    --clr-accent: #514531;
+    --clr-accent-dark: #371D1D;
+    --clr-sol-bg: rgba(244, 206, 145, 0.8);
+  }
+
+  [data-theme='dark'] {
+    --clr-sol-bg: rgba(0, 0, 0, 0.8);
+    --clr-light: #000;
+    --clr-dark: #fff;
     --clr-gray: #989898;
-    --clr-dark: #444;
     --clr-accent: #D06D6D;
     --clr-accent-dark: #613131;
   }
@@ -40,8 +50,8 @@ export const GlobalStyle = createGlobalStyle`
     background-image: url(${props => props.bgImage});
     background-size: cover;
     height: 100vh;
-
     color: var(--clr-light);
+    transition: all 0.5s ease;
   }
 
   h1, h2, h3 {
@@ -65,11 +75,13 @@ export const AppWrapper = styled.div`
 `;
 
 export const MarsWeather = styled.main`
-  background: rgba(0, 0, 0, 0.7);
+  background: var(--clr-sol-bg);
   padding: 2em;
   max-width: 1000px;
   margin: 40px 0;
   border-radius: 20px;
+  color: var(--clr-dark);
+  transition: all 0.5s ease;
 
   .main-title {
     font-size: var(--fs-h1);
@@ -84,6 +96,7 @@ export const MarsWeather = styled.main`
     font-size: var(--fs-h2);
     font-weight: var(--fw-bold);
     margin: 0;
+    color: var(--clr-dark);
   }
 
   .reading {

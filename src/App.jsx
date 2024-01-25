@@ -1,14 +1,19 @@
 import React, { useState, useEffect } from 'react';
+import useLocalStorage from 'use-local-storage';
 import { formatDate } from './helpers';
 import { API_URL } from './api';
 import { AppWrapper, GlobalStyle, MarsWeather, InfoWrapper } from './App.styles';
-import BGImage from './img/mars.jpg';
+import ThemeToggle from './components/ThemeToggle'
+import BGDayImage from './img/mars-day.jpeg';
+import BGNightImage from './img/mars-night.jpeg';
 import WeatherData from './components/WeatherData.jsx';
 import Info from './components/Info';
 import Unit from './components/Unit';
 import Previous from './components/Previous';
 
 const App = () => {
+  const [theme, setTheme] = useLocalStorage('theme' ? 'light' : 'dark');
+  const [bgImage, setBgImage] = useLocalStorage('light' ? BGDayImage : BGNightImage);
   const [loading, setLoading] = useState(true);
   const [weather, setWeather] = useState([]);
   const [selectedSol, setSelectedSol] = useState();
@@ -36,11 +41,18 @@ const App = () => {
     fetchFromAPI();
   }, []);
 
+  const switchTheme = () => {
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    const newBgImage = theme === 'light' ? BGNightImage : BGDayImage;
+    setTheme(newTheme);
+    setBgImage(newBgImage);
+  }
 
   return (
     <>
-      <GlobalStyle bgImage={BGImage} />
-      <AppWrapper>
+      <GlobalStyle bgImage={bgImage} />
+      <ThemeToggle theme={theme} onClick={switchTheme} />
+      <AppWrapper data-theme={theme}>
         <MarsWeather>
           {loading ? (<div>Loading...</div>) : (
             <>
@@ -56,6 +68,7 @@ const App = () => {
           )}
         </MarsWeather>
         <Previous
+          data-theme={theme}
           weather={weather}
           previous={previous}
           setPrevious={setPrevious}

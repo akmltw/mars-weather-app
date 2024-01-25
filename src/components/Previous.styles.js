@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const PreviousWrapper = styled.div`
-  background: var(--clr-light);
+  background: var(--clr-sol-bg);
   color: var(--clr-dark);
   position: fixed;
   bottom: 0;
@@ -10,14 +10,14 @@ export const PreviousWrapper = styled.div`
   transform: ${({ previous }) =>
     previous ? 'translateY(0)' : 'translateY(60%)'};
   transition: -webkit-transform 350ms ease;
-  transition: transform 350ms ease;
-  transition: transform 350ms ease, -webkit-transform 350ms ease;
+  transition: all 350ms ease;
+  transition: all 350ms ease, -webkit-transform 350ms ease;
   padding: 3rem;
 
   .previous-weather__title {
     text-align: ${({ previous }) => (previous ? 'left' : 'center')};
     ${({ previous }) =>
-      previous ? 'animation: slideUpIn 750ms forwards;' : 'text-align: center'};
+    previous ? 'animation: slideUpIn 750ms forwards;' : 'text-align: center'};
   }
 
   @-webkit-keyframes slideUpIn {
@@ -45,7 +45,7 @@ export const PreviousWrapper = styled.div`
 
 export const Toggle = styled.button`
   position: absolute;
-  background: var(--clr-light);
+  background: var(--clr-sol-bg);
   left: 50%;
   top: 50px;
   width: 10rem;
@@ -67,7 +67,7 @@ export const Toggle = styled.button`
   span {
     display: block;
     transform: ${({ previous }) =>
-      previous ? 'rotate(180deg) translateY(-6px)' : 'rotate(0)'};
+    previous ? 'rotate(180deg) translateY(-6px)' : 'rotate(0)'};
 
     transition: -webkit-transform 300ms ease;
     transition: transform 300ms ease;

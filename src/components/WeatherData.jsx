@@ -1,7 +1,5 @@
 import React from 'react';
-// Helpers
-import { formatTemperature } from '../helpers';
-// Styles
+import { formatTemperature, displaySpeed } from '../helpers';
 import { Wrapper, Date, Temp, Wind } from './WeatherData.styles';
 
 const WeatherData = ({ sol, isMetric }) => (
@@ -28,7 +26,7 @@ const WeatherData = ({ sol, isMetric }) => (
     <Wind deg={sol.windDirectionDegrees}>
       <h2 className='section-title'>Wind</h2>
       <p className='reading'>
-        <span>{sol.windSpeed}</span>
+        <span>{displaySpeed(sol.windSpeed, isMetric)}</span>
         <span>{isMetric ? ' kph' : ' mph'}</span>
       </p>
 

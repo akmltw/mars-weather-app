@@ -8,3 +8,11 @@ export const formatTemperature = (temperature, isMetric) => {
   }
   return Math.round(returnTemp);
 };
+
+export const displaySpeed = (speed, isMetric) => {
+  let returnSpeed = speed;
+  if (!isMetric) {
+    returnSpeed = speed / 1.609;
+  }
+  return Math.round(returnSpeed);
+};

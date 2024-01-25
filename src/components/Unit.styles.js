@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const UnitStyles = styled.div`
   place-self: end;
-  color: var(--clr-light);
+  color: var(--clr-dark);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -17,7 +17,7 @@ export const UnitStyles = styled.div`
 export const Toggle = styled.button`
   cursor: pointer;
   width: 4em;
-  border: 2px solid var(--clr-light);
+  border: 2px solid var(--clr-dark);
   background: transparent;
   padding: 0;
   border-radius: 100vmax;
@@ -26,7 +26,7 @@ export const Toggle = styled.button`
   ::after {
     content: '';
     display: block;
-    background: var(--clr-light);
+    background: var(--clr-dark);
     border-radius: 50%;
     height: 1rem;
     margin: 3px;
