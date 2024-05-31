@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.js": "/mars-weather-app/static/js/main.83a52e6f.js",
-    "static/media/mars-day.jpeg": "/mars-weather-app/static/media/mars-day.f76505f18dee1756ebd4.jpeg",
-    "static/media/mars-night.jpeg": "/mars-weather-app/static/media/mars-night.6af89393a950523d53b8.jpeg",
+    "main.js": "/mars-weather-app/static/js/main.48a6c863.js",
+    "static/media/mars-day.jpeg": "/mars-weather-app/static/media/mars-day.be86dad6795e273f4b9d.jpeg",
+    "static/media/mars-night.jpeg": "/mars-weather-app/static/media/mars-night.6b6f84fd5ba28efce31d.jpeg",
     "index.html": "/mars-weather-app/index.html",
-    "main.83a52e6f.js.map": "/mars-weather-app/static/js/main.83a52e6f.js.map"
+    "main.48a6c863.js.map": "/mars-weather-app/static/js/main.48a6c863.js.map"
   },
   "entrypoints": [
-    "static/js/main.83a52e6f.js"
+    "static/js/main.48a6c863.js"
   ]
 }
