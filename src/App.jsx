@@ -12,8 +12,8 @@ import Unit from './components/Unit';
 import Previous from './components/Previous';
 
 const App = () => {
-  const [theme, setTheme] = useLocalStorage('theme' ? 'light' : 'dark');
-  const [bgImage, setBgImage] = useLocalStorage('light' ? BGDayImage : BGNightImage);
+  const [theme, setTheme] = useLocalStorage('', 'light');
+  const [bgImage, setBgImage] = useLocalStorage(theme === 'light' ? BGDayImage : BGNightImage);
   const [loading, setLoading] = useState(true);
   const [weather, setWeather] = useState([]);
   const [selectedSol, setSelectedSol] = useState();
@@ -21,6 +21,14 @@ const App = () => {
   const [previous, setPrevious] = useState(false);
 
   useEffect(() => {
+    const preloadImage = (src) => {
+      const img = new Image();
+      img.src = src;
+    };
+    preloadImage(BGDayImage);
+    preloadImage(BGNightImage);
+    setBgImage(theme === 'light' ? BGDayImage : BGNightImage);
+
     const fetchFromAPI = async () => {
       const weather = await (await fetch(API_URL)).json();
       const marsWeather = weather.sol_keys.map(solKey => {
@@ -39,14 +47,14 @@ const App = () => {
     };
 
     fetchFromAPI();
-  }, []);
+  }, [setBgImage, theme]);
 
   const switchTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
     const newBgImage = theme === 'light' ? BGNightImage : BGDayImage;
     setTheme(newTheme);
     setBgImage(newBgImage);
-  }
+  };
 
   return (
     <>
